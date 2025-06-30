@@ -1,0 +1,35 @@
+
+"Fever, persistent cough, and shortness of breath for 3 days."
+"Severe headache, nausea, and sensitivity to light."
+"Joint pain, swelling in knees, and morning stiffness."
+"Chest pain radiating to the left arm, sweating, and dizziness."
+"Abdominal pain, diarrhea, and loss of appetite."
+"Itchy red rash on arms and legs, mild swelling."
+"Frequent urination, excessive thirst, and unexplained weight loss."
+"Sore throat, runny nose, and mild fever."
+
+
+"Paracetamol 500mg twice daily for fever."
+"Ibuprofen 400mg as needed for pain."
+"Azithromycin 500mg once daily for 3 days."
+"Cough syrup (Dextromethorphan) 10ml at night."
+"Amoxicillin 500mg thrice daily for 5 days."
+"Antihistamine (Cetirizine) 10mg at bedtime."
+
+
+"Metformin 500mg twice daily."
+"Lisinopril 10mg once daily for blood pressure."
+"Atorvastatin 20mg at night."
+"Levothyroxine 50mcg every morning."
+"Insulin glargine 10 units at bedtime."
+"Aspirin 75mg once daily."
+
+
+"Patient has a known allergy to penicillin."
+"Family history of diabetes and hypertension."
+"Recently traveled abroad."
+"History of asthma since childhood."
+"No previous surgeries."
+"Patient is a non-smoker and does not consume alcohol."
+"Uses a CPAP machine for sleep apnea."
+

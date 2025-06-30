@@ -1,0 +1,16 @@
+Prescription_and_final_Diagnostics_Report_Generation_Task:
+  description: >
+    Refine the intermediate diagnostic report: {intermediate_report}, using the doctor's feedback and modification instructions: {suggestions_for_modifications}.
+    Convert it into a user-friendly final diagnostic report for the patient, using clear, compassionate, and jargon-free language.
+    Include detailed treatment instructions.
+    The report should be duly signed by the doctor and the clinic name must also be given.
+    The name of the doctor is: {doctor_name} and clinic/hospital name is: RogiMitra.AI
+    
+  expected_output: >
+    A well-structured final diagnostic and prescription report including:
+    - A simplified explanation of the condition(s)
+    - Prescribed medicine names with dosage and timing
+    - Recommended scans or tests (if any)
+    - Foods/lifestyle items to avoid
+    - Additional health guidance or precautions
+    This report should be fully understandable to a non-medical reader and formatted clearly for direct patient use.

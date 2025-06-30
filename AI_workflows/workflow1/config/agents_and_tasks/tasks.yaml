@@ -1,0 +1,59 @@
+Symptom_Summarization_Task:
+  description: >
+    Analyze the provided symptom description text from the patient, which may be disorganized, verbose, or written in a conversational style.
+    Your job is to extract key symptoms, classify them if possible (e.g., respiratory, digestive, neurological), and output them in a clean and structured dictionary format.
+    Avoid repetition or unnecessary elaboration. Focus only on the symptom-related content from {symptoms}.
+    
+  expected_output: >
+    A dictionary (JSON-style) with symptom categories as keys (if identifiable) and lists of corresponding symptoms as values.
+    If no clear categories are found, use a single key "general_symptoms" with a list of symptoms.
+
+Recent_Medications_Summarization_Task:
+  description: >
+    Review the recent medications text entered by the user: {recent_medications}.
+    These may be unorganized or use colloquial names.
+    Identify and list the medications taken recently, including drug name (generic or brand), dosage if mentioned, and frequency if available.
+    
+  expected_output: >
+    A structured list of recent medications, each as a dictionary with keys:
+    - "medicine_name"
+    - "dosage"
+    - "frequency"
+    If dosage or frequency is not available, set the value as "unknown".
+
+Regular_Medications_Summarization_Task:
+  description: >
+    Review the regular medication routine described in: {regular_medications}.
+    These are medicines the patient takes daily or on a recurring schedule.
+    Parse this information and convert it into an organized format usable by diagnostics systems.
+    
+  expected_output: >
+    A list of regular medications with each item structured as a dictionary including:
+    - "medicine_name"
+    - "dosage"
+    - "frequency"
+    Ensure clarity and avoid duplication.
+
+Laboratory_Diagnosis_Report_Summarization_Task:
+  description: >
+    Interpret the extracted text from a pathology lab report: {lab_report_extracted_text}.
+    Understand the context, values, and test names from the report, and extract key data that may be relevant for diagnosis.
+    Pay attention to abnormalities, ranges, or flagged values.
+    
+  expected_output: >
+    A dictionary where keys are the names of lab tests, and values are the results or interpretations.
+    Highlight if any values are out of range or clinically significant.
+
+Intermediate_Diagnostics_Report_Generation_Task:
+  description: >
+    Based on the provided structured data — including personal info - name: {name}, age: {age} years, weight: {weight} kg, height: {height} cm, symptoms, recent medications, regular medications, and summarized lab findings — generate an intermediate diagnostic report.
+    This report will only be reviewed by a licensed doctor, so use clinical and technical medical language.
+    You may use {websearch_results} as additional context for diagnostic direction or treatment trends.
+    
+  expected_output: >
+    A concise diagnostic report (approx. 150-300 words) containing:
+    - Probable conditions
+    - Relevant symptom and medication correlations
+    - Any observed trends or red flags from lab reports
+    The tone should be formal, and the vocabulary should be suitable for a medical professional.
+    
