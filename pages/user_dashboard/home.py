@@ -2,13 +2,9 @@ import streamlit as st
 from pymongo import MongoClient
 from datetime import datetime, date
 from dotenv import load_dotenv
-import os
-
-# Load environment variables
-load_dotenv('.env')
 
 # MongoDB setup
-MONGO_URI = os.getenv("MONGO_URI")
+MONGO_URI = st.secrets["MONGO_URI"]
 client = MongoClient(MONGO_URI)
 db = client.website_data
 appointments_collection = db.new_appointments

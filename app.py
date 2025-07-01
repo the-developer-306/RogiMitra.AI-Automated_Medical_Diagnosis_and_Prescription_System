@@ -4,9 +4,6 @@ import os
 from streamlit_cookies_controller import CookieController
 from dotenv import load_dotenv
 
-# Load environment variables
-load_dotenv('.env')
-
 # Add paths for module imports
 sys.path.append(os.path.join(os.path.dirname(__file__), 'pages'))
 sys.path.append(os.path.join(os.path.dirname(__file__), 'user_dashboard'))
@@ -22,7 +19,7 @@ from doctor_dashboard.home import doctor_dashboard
 # Validate session token with database
 def validate_auth_token(token):
     from pymongo import MongoClient
-    MONGO_URI = os.getenv("MONGO_URI")
+    MONGO_URI = st.secrets["MONGO_URI"]
     client = MongoClient(MONGO_URI)
     db = client.website_data
 

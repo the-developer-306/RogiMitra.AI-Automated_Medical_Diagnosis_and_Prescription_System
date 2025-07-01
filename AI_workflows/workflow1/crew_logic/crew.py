@@ -1,13 +1,12 @@
-import os
 import yaml
 import warnings
-from dotenv import load_dotenv
 from PyPDF2 import PdfReader
 from crewai import Agent, Task, Crew, LLM
 from crewai.tools import BaseTool
 from tavily import TavilyClient
 import tempfile
 import requests
+import streamlit as st
 
 warnings.filterwarnings('ignore')
 
@@ -15,11 +14,10 @@ warnings.filterwarnings('ignore')
 # STEP 1: ENV & API INIT
 # ----------------------------
 def initialize_api():
-    load_dotenv('.env')  # Load environment variables
-    if not os.getenv("DEEPSEEK_API"):
-        raise ValueError("DEEPSEEK_API key not found in .env file")
-    if not os.getenv("TAVILY_API_KEY"):
-        raise ValueError("TAVILY_API_KEY not found in .env file")
+    if not st.secrets.get("DEEPSEEK_API"):
+        raise ValueError("❌ DEEPSEEK_API key not found in secrets.toml")
+    if not st.secrets.get("TAVILY_API_KEY"):
+        raise ValueError("❌ TAVILY_API_KEY not found in secrets.toml")
 
 # ----------------------------
 # STEP 2: LLM INIT
@@ -27,7 +25,7 @@ def initialize_api():
 def llm_initialization():
     return LLM(
         base_url="https://api.deepseek.com",
-        api_key=os.getenv("DEEPSEEK_API"),
+        api_key=st.secrets["DEEPSEEK_API"],
         model="deepseek/deepseek-chat"
     )
 
@@ -81,7 +79,7 @@ def generate_web_search_query(symptoms_text, llm):
 # STEP 5: PERFORM WEB SEARCH
 # ----------------------------
 def perform_web_search(query, k=3):
-    client = TavilyClient(api_key=os.getenv("TAVILY_API_KEY"))
+    client = TavilyClient(api_key=st.secrets["TAVILY_API_KEY"])
     results = client.search(query, search_depth="advanced", max_results=k)
     return "\n\n".join([res['content'] for res in results['results']])
 

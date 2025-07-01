@@ -2,25 +2,20 @@ import streamlit as st
 from pymongo import MongoClient
 from datetime import datetime, date
 from bson.objectid import ObjectId
-import os
 import cloudinary
 import cloudinary.uploader
-from dotenv import load_dotenv
 import threading
-
-# === Load environment variables ===
-load_dotenv('.env')
 
 # === Cloudinary Configuration ===
 cloudinary.config(
-    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
-    api_key=os.getenv("CLOUDINARY_API_KEY"),
-    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+    cloud_name=st.secrets["CLOUDINARY_CLOUD_NAME"],
+    api_key=st.secrets["CLOUDINARY_API_KEY"],
+    api_secret=st.secrets["CLOUDINARY_API_SECRET"],
     secure=True
 )
 
 # === MongoDB Setup ===
-MONGO_URI = os.getenv("MONGO_URI")
+MONGO_URI = st.secrets["MONGO_URI"]
 client = MongoClient(MONGO_URI)
 db = client.website_data
 appointments_collection = db["new_appointments"]

@@ -1,10 +1,8 @@
-import os
 import yaml
 import warnings
-from dotenv import load_dotenv
 
 from crewai import Agent, Task, Crew, LLM
-
+import streamlit as st
 
 warnings.filterwarnings('ignore')
 
@@ -12,8 +10,7 @@ warnings.filterwarnings('ignore')
 # STEP 1: ENV & API INIT
 # ----------------------------
 def initialize_api():
-    load_dotenv('.env')  # Load environment variables
-    if not os.getenv("DEEPSEEK_API"):
+    if not st.secrets.get("DEEPSEEK_API"):
         raise ValueError("DEEPSEEK_API key not found in .env file")
 
 # ----------------------------
@@ -22,7 +19,7 @@ def initialize_api():
 def llm_initialization():
     return LLM(
         base_url="https://api.deepseek.com",
-        api_key=os.getenv("DEEPSEEK_API"),
+        api_key=st.secrets["DEEPSEEK_API"],
         model="deepseek/deepseek-chat"
     )
 

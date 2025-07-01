@@ -3,12 +3,6 @@ from pymongo import MongoClient
 import bcrypt
 import secrets
 import time
-from dotenv import load_dotenv
-import os
-
-# Load environment variables
-load_dotenv('.env')
-
 
 # ------------------ AUTH HELPERS ------------------ #
 def authenticate_user(users_collection, username, password):
@@ -27,7 +21,7 @@ def authenticate_doctor(doctors_collection, username, password):
 
 # ------------------ MAIN LOGIN PAGE ------------------ #
 def login_page(cookie_controller):
-    MONGO_URI = os.getenv("MONGO_URI")
+    MONGO_URI = st.secrets["MONGO_URI"]
     client = MongoClient(MONGO_URI)
     db = client.website_data
     users_collection = db.users

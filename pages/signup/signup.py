@@ -4,19 +4,14 @@ import bcrypt
 from datetime import datetime, date
 import secrets
 import time
-import os
 import cloudinary
 import cloudinary.uploader
-from dotenv import load_dotenv
-
-# Load environment variables
-load_dotenv('.env')
 
 # Cloudinary config
 cloudinary.config(
-    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
-    api_key=os.getenv("CLOUDINARY_API_KEY"),
-    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+    cloud_name=st.secrets["CLOUDINARY_CLOUD_NAME"],
+    api_key=st.secrets["CLOUDINARY_API_KEY"],
+    api_secret=st.secrets["CLOUDINARY_API_SECRET"],
     secure=True
 )
 
@@ -32,7 +27,7 @@ def upload_dp_to_cloudinary(file, username):
     return None
 
 def signup_page(cookie_controller):
-    MONGO_URI = os.getenv("MONGO_URI")
+    MONGO_URI = st.secrets["MONGO_URI"]
     client = MongoClient(MONGO_URI)
     db = client.website_data
     users_collection = db.users

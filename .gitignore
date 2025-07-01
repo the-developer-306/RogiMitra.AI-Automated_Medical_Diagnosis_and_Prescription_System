@@ -1,3 +1,4 @@
 .env
 credentials.txt
 medi
+.streamlit/secrets.toml
