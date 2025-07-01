@@ -189,7 +189,7 @@ def load_agents_and_tasks_and_create_crew(llm):
 
         process="sequential",  
         
-        cache=True,  
+        # cache=True,  
         
         output_log_file="AI_workflows/workflow1/config/outputs/logs.json",  
     )
