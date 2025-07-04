@@ -1,6 +1,10 @@
 import yaml
 import warnings
 
+import pysqlite3
+import sys
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+
 from crewai import Agent, Task, Crew, LLM
 import streamlit as st
 

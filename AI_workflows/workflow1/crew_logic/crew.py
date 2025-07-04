@@ -1,6 +1,11 @@
 import yaml
 import warnings
 from PyPDF2 import PdfReader
+
+import pysqlite3
+import sys
+sys.modules["sqlite3"] = sys.modules.pop("pysqlite3")
+
 from crewai import Agent, Task, Crew, LLM
 from crewai.tools import BaseTool
 from tavily import TavilyClient
