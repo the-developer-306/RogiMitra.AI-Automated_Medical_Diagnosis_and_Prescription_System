@@ -184,21 +184,6 @@ def new_appointment_page(user, cookie_controller):
 
             # ✅ Immediate Confirmation
             st.success(f"✅ Appointment #{appt_id} submitted successfully! AI workflow is now running.")
-            # st.balloons()
-
-            # # Summary
-            # st.markdown("---")
-            # st.subheader("📋 Appointment Summary")
-            # st.write(f"**Symptoms:** {symptoms}")
-            # st.write(f"**Recent Medications:** {recent_medications}")
-            # st.write(f"**Regular Medications:** {regular_medications}")
-            # st.write(f"**Important Notes:** {important_notes}")
-            # if lab_report_url:
-            #     st.markdown(f"**Lab Report:** [View PDF]({lab_report_url})")
-            # if visual_symptom_urls:
-            #     st.markdown("**Visual Symptoms:**")
-            #     for url in visual_symptom_urls:
-            #         st.image(url, width=300)
-
             st.markdown("---")
             st.info("Our AI system is generating your diagnostic report. A doctor will review it and update your dashboard shortly.")
+            st.info("Note: Features like diagnosis generation may take time due to server load.")
